@@ -12,13 +12,12 @@ import { AdminModule } from './admin/admin.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: '100100',
-      database: 'real_estate_db',
+      url: 'postgresql://neondb_owner:npg_Qu7idmtCW1sH@ep-purple-lake-al7qiet9.c-3.eu-central-1.aws.neon.tech/neondb?sslmode=require',
       autoLoadEntities: true,
-      synchronize: true, 
+      synchronize: true,
+      ssl: {
+        rejectUnauthorized: false,
+      },
     }),
     UsersModule,
     PropertiesModule,
